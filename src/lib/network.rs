@@ -136,14 +136,11 @@ pub async fn check_qr_status(config: &Config, qrcode_key: String) -> QRStatus {
 
         if code == 86101 {
             return QRStatus::NotScan;
-        }
-        else if code == 86090 {
+        } else if code == 86090 {
             return QRStatus::Scanning;
-        }
-        else if code == 86038 {
+        } else if code == 86038 {
             return QRStatus::Invalid;
-        }
-        else if code == 0 {
+        } else if code == 0 {
             let data = value.get("data").unwrap();
             // dbg!(resp.cookies());
             let url = data.get("url").unwrap().as_str().unwrap();
